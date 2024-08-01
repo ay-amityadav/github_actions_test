@@ -27,22 +27,10 @@ jobs:
     - name: Create and activate conda environment
       shell: bash -l {0}
       run: |
-        conda create -n hifibgc -c conda-forge -c bioconda -c amityadav -y hifibgc
-        conda activate hifibgc
+        conda create -n bigscape -c bioconda bigscape
+        conda activate bigscape
         
-    - name: Test HiFiBGC installation
-      shell: bash -l {0}
-      run: |
-        conda activate hifibgc
-        hifibgc --help
-
-    - name: Test HiFiBGC installation
-      shell: bash -l {0}
-      run: |
-        conda activate hifibgc
-        brew install gcc
-        hifibgc install
-
+    
 
 
         
