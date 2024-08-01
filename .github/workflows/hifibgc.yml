@@ -30,7 +30,11 @@ jobs:
         conda create -n bigscape -c bioconda bigscape
         conda activate bigscape
         
-    
+    - name: Create and activate conda environment
+      shell: bash -l {0}
+      run: |
+        conda create -n antismash -c bioconda antismash
+        conda activate antismash
 
 
         
