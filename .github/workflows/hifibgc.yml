@@ -33,5 +33,13 @@ jobs:
     - name: Test HiFiBGC installation
       shell: bash -l {0}
       run: |
-        conda activate hifibgc
         hifibgc --help
+
+    - name: Test HiFiBGC installation
+      shell: bash -l {0}
+      run: |
+        hifibgc install
+
+
+
+        
