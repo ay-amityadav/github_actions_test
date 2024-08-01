@@ -33,7 +33,7 @@ jobs:
     - name: Create and activate conda environment
       shell: bash -l {0}
       run: |
-        conda create -n antismash -c bioconda antismash
+        conda create -n antismash -c bioconda -c conda-forge antismash
         conda activate antismash
 
 
