@@ -27,6 +27,7 @@ jobs:
     - name: Create and activate conda environment
       run: |
         conda create -n hifibgc -c conda-forge -c bioconda -c amityadav -y hifibgc
+        conda init
         conda activate hifibgc
         
     - name: Test HiFiBGC installation
