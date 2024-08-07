@@ -27,8 +27,8 @@ jobs:
     - name: Create and activate conda environment
       shell: bash -l {0}
       run: |
-        wget https://raw.githubusercontent.com/ay-amityadav/github_actions_test/main/flye_macos.yml
-        conda env create --name flye_macos --file=flye_macos.yml
+        wget https://raw.githubusercontent.com/ay-amityadav/github_actions_test/main/bigscape_macos.yml
+        conda env create --name bigscape_macos --file=bigscape_macos.yml
         
     
 
