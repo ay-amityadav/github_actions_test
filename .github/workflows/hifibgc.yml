@@ -27,8 +27,9 @@ jobs:
     - name: Create and activate conda environment
       shell: bash -l {0}
       run: |
-        wget https://raw.githubusercontent.com/ay-amityadav/github_actions_test/main/canu_macos.yml
-        conda env create --name canu_macos --file=canu_macos.yml
+        conda create -n canu -c bioconda canu
+        conda env export --name canu > canu.yml
+        cat canu.yml
         
     
 
