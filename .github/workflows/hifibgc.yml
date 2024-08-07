@@ -27,14 +27,9 @@ jobs:
     - name: Create and activate conda environment
       shell: bash -l {0}
       run: |
-        conda create -n bigscape -c bioconda bigscape
-        conda activate bigscape
+        wget https://raw.githubusercontent.com/ay-amityadav/github_actions_test/main/flye_macos.yml
+        conda env create --name flye_macos --file=flye_macos.yml
         
-    - name: Create and activate conda environment
-      shell: bash -l {0}
-      run: |
-        conda create -n antismash -c bioconda -c conda-forge antismash
-        conda activate antismash
-
+    
 
         
