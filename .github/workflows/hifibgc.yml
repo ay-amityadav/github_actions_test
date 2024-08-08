@@ -27,9 +27,9 @@ jobs:
     - name: Create and activate conda environment
       shell: bash -l {0}
       run: |
-        wget https://raw.githubusercontent.com/ay-amityadav/github_actions_test/main/r_complexupset_minimal_mac.yml
-        conda env create --name r_complexupset_minimal_mac --file=r_complexupset_minimal_mac.yml
-        conda activate r_complexupset_minimal_mac
+        wget https://raw.githubusercontent.com/ay-amityadav/github_actions_test/main/canu_minimal_mac.yml
+        conda env create --name canu_minimal_mac --file=canu_minimal_mac.yml
+        conda activate canu_minimal_mac
         
         
         
