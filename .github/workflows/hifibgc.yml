@@ -31,6 +31,8 @@ jobs:
         conda env create --name antismash_v7_minimal_mac --file=antismash_v7_minimal_mac.yml
         conda activate antismash_v7_minimal_mac
         antismash -h
+        conda env export --name antismash_v7_minimal_mac > antismash_v7_minimal_mac_export_mac.yml
+        cat antismash_v7_minimal_mac_export_mac.yml
         
         
         
