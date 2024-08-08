@@ -31,7 +31,7 @@ jobs:
         conda env create --name mapping_minimal_mac --file=mapping_minimal_mac.yml
         conda activate mapping_minimal_mac
         minimap2 -h
-        samtools
+        samtools help
         
         
         
