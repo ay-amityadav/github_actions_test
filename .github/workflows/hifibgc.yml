@@ -27,9 +27,10 @@ jobs:
     - name: Create and activate conda environment
       shell: bash -l {0}
       run: |
-        wget https://raw.githubusercontent.com/ay-amityadav/github_actions_test/main/bigscape_minimal_mac.yml
-        conda env create --name bigscape_minimal_mac --file=bigscape_minimal_mac.yml
-        conda activate bigscape_minimal_mac
+        wget https://raw.githubusercontent.com/ay-amityadav/github_actions_test/main/antismash_v7_minimal_mac.yml
+        conda env create --name antismash_v7_minimal_mac --file=antismash_v7_minimal_mac.yml
+        conda activate antismash_v7_minimal_mac
+        antismash -h
         
         
         
