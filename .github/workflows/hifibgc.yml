@@ -27,9 +27,14 @@ jobs:
     - name: Create and activate conda environment
       shell: bash -l {0}
       run: |
-        conda create -n canu -c bioconda canu
-        conda env export --name canu > canu.yml
-        cat canu.yml
+        wget https://raw.githubusercontent.com/ay-amityadav/github_actions_test/main/mapping_minimal_mac.yml
+        conda env create --name mapping_minimal_mac --file=mapping_minimal_mac.yml
+        conda activate mapping_minimal_mac
+        minimap2 -h
+        samtools
+        
+        
+        
         
     
 
