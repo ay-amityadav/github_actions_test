@@ -27,11 +27,10 @@ jobs:
     - name: Create and activate conda environment
       shell: bash -l {0}
       run: |
-        wget https://raw.githubusercontent.com/ay-amityadav/github_actions_test/main/hifiasm_meta_minimal_mac.yml
-        conda env create --name hifiasm_meta_minimal_mac --file=hifiasm_meta_minimal_mac.yml
-        conda activate hifiasm_meta_minimal_mac
-        hifiasm_meta -h
-        gfatools version
+        wget https://raw.githubusercontent.com/ay-amityadav/github_actions_test/main/r_complexupset_minimal_mac.yml
+        conda env create --name r_complexupset_minimal_mac --file=r_complexupset_minimal_mac.yml
+        conda activate r_complexupset_minimal_mac
+        
         
         
         
