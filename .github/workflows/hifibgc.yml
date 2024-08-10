@@ -27,12 +27,12 @@ jobs:
     - name: Create and activate conda environment
       shell: bash -l {0}
       run: |
-        wget https://raw.githubusercontent.com/ay-amityadav/github_actions_test/main/antismash_v7_minimal_mac.yml
-        conda env create --name antismash_v7_minimal_mac --file=antismash_v7_minimal_mac.yml
-        conda activate antismash_v7_minimal_mac
-        antismash -h
-        conda env export --name antismash_v7_minimal_mac > antismash_v7_minimal_mac_export_mac.yml
-        cat antismash_v7_minimal_mac_export_mac.yml
+        wget https://raw.githubusercontent.com/ay-amityadav/github_actions_test/main/base.yml
+        conda env create --name base --file=base.yml
+        conda activate base
+        git clone -b macos_installation https://github.com/ay-amityadav/HiFiBGC.git
+        cd hifibgc
+        python __main__.py install -p -n
         
         
         
