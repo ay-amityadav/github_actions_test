@@ -33,7 +33,7 @@ jobs:
         git clone -b macos_installation https://github.com/ay-amityadav/HiFiBGC.git
         cd HiFiBGC/hifibgc
         python __main__.py install -p --conda-frontend conda
-        python __main__.py test -p --conda-frontend conda   
+        python __main__.py test -p --conda-frontend conda  
         
         
         
