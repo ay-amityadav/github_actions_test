@@ -1,0 +1,44 @@
+name: Install HiFiBGC on macOS
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  install:
+    runs-on: macos-12
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Install Miniconda
+      uses: conda-incubator/setup-miniconda@v2
+      with:
+        auto-activate-base: false
+        python-version: 3.9
+
+    - name: Create and activate conda environment
+      shell: bash -l {0}
+      run: |
+        wget https://raw.githubusercontent.com/ay-amityadav/github_actions_test/main/base1_macos_installation.yml
+        conda env create --name base1 --file=base1_macos_installation.yml
+        conda activate base1
+        git clone -b macos_installation https://github.com/ay-amityadav/HiFiBGC.git
+        cd HiFiBGC/hifibgc
+        python __main__.py install -p --conda-frontend conda
+        python __main__.py test -p --conda-frontend conda  
+        
+        
+        
+        
+        
+    
+
+        
