@@ -32,6 +32,7 @@ jobs:
         pip install hifibgc==0.1.14a1
         hifibgc -h
         hifibgc install -p --conda-frontend conda
+        hifibgc test -p --conda-frontend conda
   
         #wget https://raw.githubusercontent.com/ay-amityadav/github_actions_test/main/base1_macos_installation.yml
         #conda env create --name base1 --file=base1_macos_installation.yml
