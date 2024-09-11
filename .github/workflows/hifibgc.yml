@@ -24,12 +24,12 @@ jobs:
         auto-activate-base: false
         python-version: 3.9
 
-    - name: Create and activate conda environment
+    - name: Install hifibgc using pip and test it
       shell: bash -l {0}
       run: |
-        conda create -n hifibgc_14a_pip -y
-        conda activate hifibgc_14a_pip
-        pip install hifibgc==0.1.14a1
+        conda create -n hifibgc_14a2_pip python=3.11 -y 
+        conda activate hifibgc_14a2_pip
+        pip install hifibgc==0.1.14a2
         hifibgc -h
         hifibgc install -p --conda-frontend conda
         hifibgc test -p --conda-frontend conda
