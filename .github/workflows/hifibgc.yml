@@ -27,12 +27,18 @@ jobs:
     - name: Install hifibgc using pip and test it
       shell: bash -l {0}
       run: |
-        conda create -n hifibgc_14a2_pip -c conda-forge python=3.11 -y 
-        conda activate hifibgc_14a2_pip
-        pip install hifibgc==0.1.14a2
+        conda create -n hifibgc_14a2_conda -c conda-forge -c bioconda -c amityadav hifibgc==0.1.14a2 -y
+        conda activate hifibgc_14a2_conda
         hifibgc -h
-        hifibgc install -p --conda-frontend conda
-        hifibgc test -p --conda-frontend conda
+        hifibgc install -p
+        hifibgc test -p
+        
+        #conda create -n hifibgc_14a2_pip -c conda-forge python=3.11 -y 
+        #conda activate hifibgc_14a2_pip
+        #pip install hifibgc==0.1.14a2
+        #hifibgc -h
+        #hifibgc install -p --conda-frontend conda
+        #hifibgc test -p --conda-frontend conda
   
         #wget https://raw.githubusercontent.com/ay-amityadav/github_actions_test/main/base1_macos_installation.yml
         #conda env create --name base1 --file=base1_macos_installation.yml
