@@ -27,7 +27,7 @@ jobs:
     - name: Install hifibgc using pip and test it
       shell: bash -l {0}
       run: |
-        conda create -n hifibgc_14a2_pip python=3.11 -y 
+        conda create -n hifibgc_14a2_pip -c conda-forge python=3.11 -y 
         conda activate hifibgc_14a2_pip
         pip install hifibgc==0.1.14a2
         hifibgc -h
