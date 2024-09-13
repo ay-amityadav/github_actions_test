@@ -11,7 +11,7 @@ jobs:
     #strategy:
     #  matrix:
     #    os: [macos-12, ubuntu-20.04]
-    runs-on: ubuntu-latest
+    runs-on: macos-12
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
@@ -30,18 +30,18 @@ jobs:
     - name: Install hifibgc using pip and test it
       shell: bash -l {0}
       run: |
-        conda create -n hifibgc_14a2_conda -c conda-forge -c bioconda -c amityadav hifibgc==0.1.14a2 -y
-        conda activate hifibgc_14a2_conda
+        conda create -n hifibgc_14a3_pip -c conda-forge python=3.11 -y 
+        conda activate hifibgc_14a3_pip
+        pip install hifibgc==0.1.14a3
         hifibgc -h
-        hifibgc install -p
-        hifibgc test -p
+        hifibgc install -p --conda-frontend conda
+        hifibgc test -p --conda-frontend conda
         
-        #conda create -n hifibgc_14a2_pip -c conda-forge python=3.11 -y 
-        #conda activate hifibgc_14a2_pip
-        #pip install hifibgc==0.1.14a2
+        #conda create -n hifibgc_14a2_conda -c conda-forge -c bioconda -c amityadav hifibgc==0.1.14a2 -y
+        #conda activate hifibgc_14a2_conda
         #hifibgc -h
-        #hifibgc install -p --conda-frontend conda
-        #hifibgc test -p --conda-frontend conda
+        #hifibgc install -p
+        #hifibgc test -p
   
         #wget https://raw.githubusercontent.com/ay-amityadav/github_actions_test/main/base1_macos_installation.yml
         #conda env create --name base1 --file=base1_macos_installation.yml
