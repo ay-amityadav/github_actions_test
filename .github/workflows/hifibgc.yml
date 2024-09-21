@@ -33,7 +33,7 @@ jobs:
         run: |
           mamba init bash
           source ~/.bash_profile
-          mamba activate hifibgc
+          conda activate hifibgc
           hifibgc -h
           hifibgc install -p
           hifibgc test -p
