@@ -17,7 +17,7 @@ jobs:
           mamba-version: "*"
           channels: conda-forge,defaults
           channel-priority: true
-          activate-environment: anaconda-client-env
+          #activate-environment: anaconda-client-env
       - shell: bash -el {0}
         run: |
           conda info
