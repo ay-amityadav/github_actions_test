@@ -24,6 +24,8 @@ jobs:
         auto-activate-base: false
         python-version: 3.9
         mamba-version: "*"
+        channels: conda-forge,defaults
+        channel-priority: true
 
     - name: Install hifibgc using mamba and test it
       shell: bash -l {0}
