@@ -19,7 +19,7 @@ jobs:
         python-version: '3.9'
 
     - name: Install Miniconda
-      uses: conda-incubator/setup-miniconda@v2
+      uses: conda-incubator/setup-miniconda@v3
       with:
         auto-activate-base: false
         python-version: 3.9
