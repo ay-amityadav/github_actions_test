@@ -22,7 +22,7 @@ jobs:
       uses: conda-incubator/setup-miniconda@v3
       with:
         auto-activate-base: false
-        python-version: 3.9
+        python-version: 3.11
         mamba-version: 1.4.1
         channels: conda-forge,defaults
         channel-priority: true
