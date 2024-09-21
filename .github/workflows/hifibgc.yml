@@ -21,6 +21,12 @@ jobs:
         activate-environment: myenv
         use-mamba: true
 
+    - name: Initialize Mamba
+      shell: bash -l {0}
+      run: |
+        mamba init bash
+        source ~/.bash_profile
+
     - name: Install your tool
       shell: bash -l {0}
       run: |
@@ -32,7 +38,7 @@ jobs:
     - name: Verify installation
       shell: bash -l {0}
       run: |
-       conda activate hifibgc
+       mamba activate hifibgc
        hifibgc -h
        hifibgc install -p
        hifibgc test -p
