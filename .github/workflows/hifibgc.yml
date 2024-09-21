@@ -13,24 +13,31 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
       
-    #- name: Set up Python
-    #  uses: actions/setup-python@v4
-    #  with:
-    #    python-version: '3.11'
-
-    - name: Install Miniconda
-      uses: conda-incubator/setup-miniconda@v3
+    - name: Set up Python
+      uses: actions/setup-python@v4
       with:
-        auto-activate-base: false
-        python-version: 3.11
-        mamba-version: 1.4.1
-        channels: conda-forge,defaults
-        channel-priority: true
+        python-version: '3.9'
+
+    #- name: Install Miniconda
+    #  uses: conda-incubator/setup-miniconda@v3
+    #  with:
+    #    auto-activate-base: false
+    #    python-version: 3.9
+    #    #mamba-version: 1.4.1
+    #    channels: conda-forge,defaults
+    #    channel-priority: true
+    
+    - name: Install miniforge
+      shell: bash -l {0}
+      run: |
+        wget https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge-pypy3-MacOSX-x86_64.sh
+        chmod +x Miniforge-pypy3-MacOSX-x86_64.sh
+        ./Miniforge-pypy3-MacOSX-x86_64.sh
 
     - name: Install hifibgc using mamba and test it
       shell: bash -l {0}
       run: |
-        conda create -n hifibgc_14_conda -c conda-forge -c bioconda -c amityadav hifibgc -y
+        mamba create -n hifibgc_14_conda -c conda-forge -c bioconda -c amityadav hifibgc -y
         conda activate hifibgc_14_conda
         hifibgc -h
         hifibgc install -p
