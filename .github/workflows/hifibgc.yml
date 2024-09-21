@@ -23,7 +23,7 @@ jobs:
       with:
         auto-activate-base: false
         python-version: 3.9
-        mamba-version: "*"
+        mamba-version: 1.4.1
         channels: conda-forge,defaults
         channel-priority: true
 
