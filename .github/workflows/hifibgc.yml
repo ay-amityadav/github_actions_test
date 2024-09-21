@@ -32,11 +32,11 @@ jobs:
     - name: Verify installation
       shell: bash -l {0}
       run: |
-       mamba activate hifibgc
+       conda activate hifibgc
        hifibgc -h
-
-
-
+       hifibgc install -p
+       hifibgc test -p
+       
     # - name: Set up Python
     #   uses: actions/setup-python@v4
     #   with:
