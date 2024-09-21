@@ -10,38 +10,62 @@ jobs:
   install:
     runs-on: macos-12
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+      - uses: conda-incubator/setup-miniconda@v3
+        with:
+          python-version: 3.9
+          mamba-version: "*"
+          channels: conda-forge,defaults
+          channel-priority: true
+          activate-environment: anaconda-client-env
+          environment-file: etc/example-environment.yml
+      - shell: bash -el {0}
+        run: |
+          conda info
+          conda list
+          conda config --show-sources
+          conda config --show
+          printenv | sort
+      - shell: bash -el {0}
+        run: |
+          mamba create -n hifibgc -c conda-forge -c bioconda -c amityadav -y hifibgc
+          mamba activate hifibgc
+          hifibgc -h
+          hifibgc install -p
+          hifibgc test -p
+    # steps:
+    # - name: Checkout repository
+    #   uses: actions/checkout@v3
       
-    - name: Set up Mambaforge
-      uses: conda-incubator/setup-miniconda@v2
-      with:
-        miniforge-variant: Mambaforge
-        miniforge-version: latest
-        activate-environment: myenv
-        use-mamba: true
+    # - name: Set up Mambaforge
+    #   uses: conda-incubator/setup-miniconda@v2
+    #   with:
+    #     miniforge-variant: Mambaforge
+    #     miniforge-version: latest
+    #     activate-environment: myenv
+    #     use-mamba: true
 
-    - name: Initialize Mamba
-      shell: bash -l {0}
-      run: |
-        mamba init bash
-        source ~/.bash_profile
+    # - name: Initialize Mamba
+    #   shell: bash -l {0}
+    #   run: |
+    #     mamba init bash
+    #     source ~/.bash_profile
 
-    - name: Install your tool
-      shell: bash -l {0}
-      run: |
-        mamba create -n hifibgc -c conda-forge -c bioconda -c amityadav -y hifibgc
-        # mamba init
-        # mamba activate hifibgc
-        # hifibgc -h
+    # - name: Install your tool
+    #   shell: bash -l {0}
+    #   run: |
+    #     mamba create -n hifibgc -c conda-forge -c bioconda -c amityadav -y hifibgc
+    #     # mamba init
+    #     # mamba activate hifibgc
+    #     # hifibgc -h
 
-    - name: Verify installation
-      shell: bash -l {0}
-      run: |
-       mamba activate hifibgc
-       hifibgc -h
-       hifibgc install -p
-       hifibgc test -p
+    # - name: Verify installation
+    #   shell: bash -l {0}
+    #   run: |
+    #    mamba activate hifibgc
+    #    hifibgc -h
+    #    hifibgc install -p
+    #    hifibgc test -p
        
     # - name: Set up Python
     #   uses: actions/setup-python@v4
