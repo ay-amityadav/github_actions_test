@@ -30,7 +30,7 @@ jobs:
     - name: Install hifibgc using mamba and test it
       shell: bash -l {0}
       run: |
-        mamba create -n hifibgc_14_conda -c conda-forge -c bioconda -c amityadav hifibgc -y
+        conda create -n hifibgc_14_conda -c conda-forge -c bioconda -c amityadav hifibgc -y
         conda activate hifibgc_14_conda
         hifibgc -h
         hifibgc install -p
