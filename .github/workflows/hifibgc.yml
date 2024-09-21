@@ -25,8 +25,15 @@ jobs:
       shell: bash -l {0}
       run: |
         mamba create -n hifibgc -c conda-forge -c bioconda -c amityadav -y hifibgc
+        mamba init
         mamba activate hifibgc
-        mamba -h
+        hifibgc -h
+
+    # - name: Verify installation
+    #   shell: bash -l {0}
+    #   run: |
+    #    your-tool-name --version  # Replace 
+
 
 
     # - name: Set up Python
