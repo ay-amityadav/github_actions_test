@@ -31,8 +31,6 @@ jobs:
       - name: Initialize Mamba
         shell: bash -l {0}
         run: |
-          mamba init bash
-          source ~/.bash_profile
           conda activate hifibgc
           hifibgc -h
           hifibgc install -p
