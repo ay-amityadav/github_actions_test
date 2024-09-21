@@ -18,6 +18,7 @@ jobs:
           channels: conda-forge,defaults
           channel-priority: true
           activate-environment: anaconda-client-env
+          environment-file: etc/example-environment.yml
       - shell: bash -el {0}
         run: |
           conda info
@@ -28,6 +29,11 @@ jobs:
       - shell: bash -el {0}
         run: |
           mamba create -n hifibgc -c conda-forge -c bioconda -c amityadav -y hifibgc
+      - name: Initialize Mamba
+        shell: bash -l {0}
+        run: |
+          mamba init bash
+          source ~/.bash_profile
           mamba activate hifibgc
           hifibgc -h
           hifibgc install -p
